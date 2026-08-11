@@ -1,0 +1,55 @@
+[
+  {
+    "id": "post-1",
+    "slug": "how-ai-transforms-visual-storytelling",
+    "title": "How AI Transforms Visual Storytelling Without Losing the Human Touch",
+    "metaTitle": "AI Visual Storytelling Guide | Frame Feature",
+    "metaDescription": "Discover how generative AI tools like Midjourney and Claude supercharge photography, short-form frames, and visual composition while preserving creative intent.",
+    "excerpt": "Generative AI is not here to replace the photographer's eye—it's here to eliminate the friction between imagination and the final frame.",
+    "category": "AI",
+    "categoryKey": "ai",
+    "featured": true,
+    "publishedAt": "Feb 10, 2025",
+    "readTime": "4 min read",
+    "author": {
+      "name": "Amaan",
+      "role": "Visual & AI Creator",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80"
+    },
+    "coverImage": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["AI Art", "Visual Storytelling", "Midjourney", "Content Strategy"],
+    "tableOfContents": [
+      { "id": "the-creative-dilemma", "title": "1. The Creative Dilemma" },
+      { "id": "prompting-vs-composition", "title": "2. Prompting vs. True Composition" },
+      { "id": "the-4-step-workflow", "title": "3. The 4-Step Practical Workflow" },
+      { "id": "future-takeaways", "title": "4. Key Takeaways for Creators" }
+    ],
+    "rawContent": "## 1. The Creative Dilemma\n\nWhen generative tools first exploded, many creators panicked. Will AI replace the camera? Will algorithms write better hooks than human storytellers?\n\nThe short answer is **no**. AI generates infinite variations in seconds, but **it cannot decide what matters**.\n\n> \"The camera captures the scene, but the photographer chooses the boundary. AI is just a faster lens.\"\n\n---\n\n## 2. Prompting vs. True Composition\n\nA prompt is just an instruction. **Composition** is an emotional contract with the viewer.\n\nWhen we build visual frames:\n- **Negative Space** gives the eye room to rest.\n- **Contrast & Lighting** direct the viewer's subconscious focus.\n- **Pacing** creates curiosity rather than overwhelm.\n\nMastering AI is not about memorizing complex prompt tokens—it is about **taste, curation, and ruthless editing**.\n\n---\n\n## 3. The 4-Step Practical Workflow\n\nHere is the exact method I use daily:\n\n1. **Observe & Note**: Write down the core thesis in one sentence.\n2. **Generate Iterations**: Produce 20-30 visual drafts focusing on lighting and geometry.\n3. **Curate & Refine**: Discard 90% of outputs and keep only the sharpest frame.\n4. **Structure & Format**: Pair the visual with crisp, bold copy.\n\n---\n\n## 4. Key Takeaways for Creators\n\n- Never post generic AI outputs without a clear point of view.\n- Treat tools as creative amplifiers, not autonomous decision-makers.\n- Focus on **clarity over complexity** in every post."
+  },
+  {
+    "id": "post-2",
+    "slug": "why-clarity-beats-cleverness-in-digital-content",
+    "title": "Why Clarity Always Beats Cleverness in Modern Content",
+    "metaTitle": "Why Clarity Beats Cleverness in Content | Frame Feature",
+    "metaDescription": "Learn why simplicity, strong visual anchors, and structured communication outperform complicated jargon across social media and web design.",
+    "excerpt": "Audiences don't have short attention spans—they have zero tolerance for unnecessary confusion and fluff.",
+    "category": "Content",
+    "categoryKey": "content",
+    "featured": false,
+    "publishedAt": "Jan 25, 2025",
+    "readTime": "3 min read",
+    "author": {
+      "name": "Amaan",
+      "role": "Visual & AI Creator",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80"
+    },
+    "coverImage": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["Content Strategy", "Writing", "Copywriting", "Simplicity"],
+    "tableOfContents": [
+      { "id": "the-confusion-trap", "title": "1. The Confusion Trap" },
+      { "id": "the-inverted-pyramid", "title": "2. The Inverted Pyramid" },
+      { "id": "formatting-tips", "title": "3. Formatting for Maximum Readability" }
+    ],
+    "rawContent": "## 1. The Confusion Trap\n\nMost web articles and social posts fail not because the underlying premise is bad, but because it is buried under **three layers of jargon**.\n\nWhen a visitor lands on your page, you have **3 seconds** to answer two subconscious questions:\n- *What is this about?*\n- *Why should I care right now?*\n\nIf your headline is overly clever or mysterious, visitors simply bounce.\n\n---\n\n## 2. The Inverted Pyramid\n\nStructure your content with an inverted pyramid architecture:\n\n1. **The Core Punchline**: Put the main realization right up front.\n2. **The Context**: Explain how you arrived at this conclusion.\n3. **The Actionable Rule**: Give the reader something they can test today.\n\n---\n\n## 3. Formatting for Maximum Readability\n\n- Use **bold emphasis** sparingly to highlight key concepts.\n- Break long paragraphs into 2-3 sentence chunks.\n- Use bullet points whenever comparing items or steps.\n- Support dense ideas with clean visual diagrams or screenshots."
+  }
+]

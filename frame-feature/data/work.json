@@ -1,0 +1,129 @@
+[
+  {
+    "id": "visual-storytelling-capture",
+    "slug": "visual-storytelling-capture",
+    "title": "Visual Frame & Composition Study — Direct Capture",
+    "metaTitle": "Visual Frame & Composition Study | Frame Feature",
+    "metaDescription": "Direct visual storytelling experiment exploring depth of field, framing, and light contrast.",
+    "category": "Visual Content",
+    "categoryKey": "visual",
+    "summary": "Direct visual storytelling experiment exploring depth of field, natural optics, and light contrast.",
+    "image": "/work/IMG_4171.JPG",
+    "year": "2025",
+    "tags": [
+      "Photography",
+      "Composition",
+      "Framing",
+      "Visual Study"
+    ],
+    "idea": "How can intentional composition and framing isolate the core subject while utilizing negative space to evoke emotion?",
+    "process": {
+      "tools": [
+        "Optics",
+        "Light Balance",
+        "Post-Grade"
+      ],
+      "method": "Captured with precise framing, controlling optical depth and natural light falloff before grading."
+    },
+    "output": "A centerpiece visual frame documenting composition clarity and texture.",
+    "learning": {
+      "whatWorked": "Tight geometric framing and natural light direction created immediate visual hierarchy.",
+      "whatDidnt": "Excess ambient light flattened contrast; controlled exposure gave much richer depth."
+    }
+  },
+  {
+    "id": "cinematic-lighting-genai",
+    "slug": "cinematic-lighting-genai",
+    "title": "Cinematic Framing & Synthetic Lighting Study",
+    "metaTitle": "Cinematic Framing & Synthetic Lighting Study | Frame Feature",
+    "metaDescription": "Exploring how anamorphic lens flares and chiaroscuro lighting can be controlled with precision prompting and color grading workflows.",
+    "category": "AI Experiments",
+    "categoryKey": "ai",
+    "summary": "Exploring how anamorphic lens flares and chiaroscuro lighting can be controlled with precision prompting.",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+    "year": "2025",
+    "tags": [
+      "Midjourney v6",
+      "ComfyUI",
+      "Color Grading",
+      "Visual Study"
+    ],
+    "idea": "Can generative AI replicate the deliberate, subtle imperfection of vintage anamorphic glass without looking overly digital?",
+    "process": {
+      "tools": [
+        "ComfyUI",
+        "Custom SDXL LoRA",
+        "DaVinci Resolve"
+      ],
+      "method": "Trained a specialized contrast curve weights workflow and passed outputs through standard cinematic post-production LUTs."
+    },
+    "output": "A 12-frame visual editorial examining nocturnal architecture with orange sodium-vapor and tungsten rim lighting.",
+    "learning": {
+      "whatWorked": "Using specific focal lengths (e.g. 50mm f/1.2) in prompt structure anchored depth of field much better than generic 'cinematic' keywords.",
+      "whatDidnt": "Over-weighting film grain in the generator caused artifacts; applying 35mm grain in DaVinci post gave 10x better results."
+    }
+  },
+  {
+    "id": "visual-concept-clarity",
+    "slug": "visual-concept-clarity",
+    "title": "Deconstructing Complex AI Concepts into Visual Micro-Frames",
+    "metaTitle": "Visual Micro-Frames & Concept Clarity Case Study | Frame Feature",
+    "metaDescription": "Transforming dense 20-page research papers into 3-frame carousel breakdowns that take 15 seconds to understand.",
+    "category": "Content Formats",
+    "categoryKey": "content",
+    "summary": "Transforming 20-page research papers into 3-frame carousel breakdowns that take 15 seconds to understand.",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    "year": "2025",
+    "tags": [
+      "Visual Thinking",
+      "Information Design",
+      "Figma",
+      "Clarity"
+    ],
+    "idea": "Why do people drop off from reading tech papers? Because the cognitive load is too high. Can we turn abstract ideas into intuitive visual mental models?",
+    "process": {
+      "tools": [
+        "Figma",
+        "Claude 3.5 Sonnet for abstraction",
+        "After Effects"
+      ],
+      "method": "Distilled technical papers down to 1 core metaphor per frame, using color-coded spatial arrows and minimalist typography."
+    },
+    "output": "5 visual breakdowns on Neural Attention, Latent Space Traversal, and Edge Compute that generated 140k+ impressions.",
+    "learning": {
+      "whatWorked": "Removing 60% of the text and relying on a single geometric relationship made retention skyrocket.",
+      "whatDidnt": "Decorative 3D illustrations distracted from comprehension; flat high-contrast 2D diagrams performed best."
+    }
+  },
+  {
+    "id": "analog-frames-digital-edits",
+    "slug": "analog-frames-digital-edits",
+    "title": "35mm Mechanical Frames × AI Inpainting",
+    "metaTitle": "35mm Analog Frames × Generative Inpainting | Frame Feature",
+    "metaDescription": "Capturing real-world street frames on film, then extending environments using generative diffusion.",
+    "category": "Visual Content",
+    "categoryKey": "visual",
+    "summary": "Capturing real-world street frames on film, then extending environments using generative diffusion.",
+    "image": "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=1200&q=80",
+    "year": "2025",
+    "tags": [
+      "Leica M6",
+      "Photoshop Generative Fill",
+      "Analog Film"
+    ],
+    "idea": "Exploring the boundary where physical optics end and synthetic digital continuation begins.",
+    "process": {
+      "tools": [
+        "Leica 35mm Film Camera",
+        "Epson V600 Scanner",
+        "Photoshop AI"
+      ],
+      "method": "Shot high-contrast architectural street scenes on Kodak Tri-X 400, scanned at 4800dpi, and outpainted surreal architectural geometry into the negative space."
+    },
+    "output": "A hybrid physical-digital photo series exploring urban isolation.",
+    "learning": {
+      "whatWorked": "The organic film grain acted as a natural noise texture that blended seamlessly with diffusion outpainting.",
+      "whatDidnt": "Automated prompts tended to invent modern objects; careful negative prompting was needed to preserve the timeless aesthetic."
+    }
+  }
+]

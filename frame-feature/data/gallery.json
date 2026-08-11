@@ -1,0 +1,72 @@
+[
+  {
+    "id": "g-custom-1",
+    "title": "Visual Frame Study — Optics & Composition",
+    "category": "Photos",
+    "tag": "Direct Capture",
+    "image": "/work/IMG_4171.JPG",
+    "aspectRatio": "portrait",
+    "description": "Centerpiece visual frame capturing depth of field, natural lighting, and geometric composition.",
+    "year": "2025"
+  },
+  {
+    "id": "g1",
+    "title": "Cybernetic Obsidian Core",
+    "category": "Visual experiments",
+    "tag": "AI Render",
+    "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80",
+    "aspectRatio": "landscape",
+    "description": "Ray-traced procedural geometry visualizing autonomous AI neural networks with orange plasma filaments.",
+    "year": "2025"
+  },
+  {
+    "id": "g2",
+    "title": "Quantum High-Contrast Mobile Frame",
+    "category": "Frames",
+    "tag": "Mobile Frame",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80",
+    "aspectRatio": "portrait",
+    "description": "High-contrast dark mode mobile composition featuring structured typography and dark slate tones.",
+    "year": "2025"
+  },
+  {
+    "id": "g3",
+    "title": "Industrial Titanium Hardware Study",
+    "category": "Photos",
+    "tag": "Photography",
+    "image": "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=1000&q=80",
+    "aspectRatio": "square",
+    "description": "Cinematic studio lighting study on metallic hardware surfaces.",
+    "year": "2025"
+  },
+  {
+    "id": "g4",
+    "title": "Brand Identity Grid Composition",
+    "category": "Frames",
+    "tag": "Composition",
+    "image": "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=1000&q=80",
+    "aspectRatio": "landscape",
+    "description": "Clean stationery and spatial design system in flame orange and charcoal slate.",
+    "year": "2024"
+  },
+  {
+    "id": "g5",
+    "title": "Architectural Negative Space Study",
+    "category": "Photos",
+    "tag": "Architecture",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80",
+    "aspectRatio": "portrait",
+    "description": "Minimalist architectural frame balancing negative space and geometric shadows.",
+    "year": "2025"
+  },
+  {
+    "id": "g6",
+    "title": "Editorial Synthetic Lighting Experiment",
+    "category": "Edits",
+    "tag": "Digital Edit",
+    "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80",
+    "aspectRatio": "landscape",
+    "description": "Next-gen lighting experiments with illuminated orange LED venting and matte casing.",
+    "year": "2024"
+  }
+]
