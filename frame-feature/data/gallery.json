@@ -1,6 +1,26 @@
 [
   {
-    "id": "g-custom-wedding-seo",
+    "title": "Boy Candid",
+    "category": "Photos",
+    "tag": "Photography",
+    "image": "/gallery/1786708889742-20240114151957_IMG_8653.png",
+    "aspectRatio": "portrait",
+    "description": "",
+    "year": "2026",
+    "id": "g-1786708953235"
+  },
+  {
+    "title": "Boy Candid",
+    "category": "Photos",
+    "tag": "Photography",
+    "image": "/gallery/1786708889742-20240114151957_IMG_8653.png",
+    "aspectRatio": "portrait",
+    "description": "",
+    "year": "2026",
+    "id": "g-1786708952164"
+  },
+  {
+    "id": "g-image-seo-for-wedding-photographers",
     "title": "Stressed Photographer's Portfolio Edit",
     "category": "Photos",
     "tag": "Photography SEO",
@@ -10,73 +30,183 @@
     "year": "2026"
   },
   {
-    "id": "g-custom-1",
-    "title": "Visual Frame Study — Optics & Composition",
-    "category": "Photos",
-    "tag": "Direct Capture",
-    "image": "/work/IMG_4171.JPG",
-    "aspectRatio": "portrait",
-    "description": "Centerpiece visual frame capturing depth of field, natural lighting, and geometric composition.",
-    "year": "2025"
-  },
-  {
-    "id": "g1",
-    "title": "Cybernetic Obsidian Core",
-    "category": "Visual experiments",
-    "tag": "AI Render",
-    "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80",
-    "aspectRatio": "landscape",
-    "description": "Ray-traced procedural geometry visualizing autonomous AI neural networks with orange plasma filaments.",
-    "year": "2025"
-  },
-  {
-    "id": "g2",
-    "title": "Quantum High-Contrast Mobile Frame",
-    "category": "Frames",
-    "tag": "Mobile Frame",
-    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80",
-    "aspectRatio": "portrait",
-    "description": "High-contrast dark mode mobile composition featuring structured typography and dark slate tones.",
-    "year": "2025"
-  },
-  {
-    "id": "g3",
-    "title": "Industrial Titanium Hardware Study",
-    "category": "Photos",
-    "tag": "Photography",
-    "image": "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=1000&q=80",
-    "aspectRatio": "square",
-    "description": "Cinematic studio lighting study on metallic hardware surfaces.",
-    "year": "2025"
-  },
-  {
-    "id": "g4",
-    "title": "Brand Identity Grid Composition",
-    "category": "Frames",
-    "tag": "Composition",
-    "image": "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=1000&q=80",
-    "aspectRatio": "landscape",
-    "description": "Clean stationery and spatial design system in flame orange and charcoal slate.",
-    "year": "2024"
-  },
-  {
-    "id": "g5",
-    "title": "Architectural Negative Space Study",
-    "category": "Photos",
-    "tag": "Architecture",
-    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80",
-    "aspectRatio": "portrait",
-    "description": "Minimalist architectural frame balancing negative space and geometric shadows.",
-    "year": "2025"
-  },
-  {
-    "id": "g6",
-    "title": "Editorial Synthetic Lighting Experiment",
+    "id": "g-ai-edit",
+    "title": "AI Digital Enhancements",
     "category": "Edits",
-    "tag": "Digital Edit",
-    "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80",
+    "tag": "AI Processing",
+    "image": "/gallery/ai edit.png",
+    "aspectRatio": "square",
+    "description": "Color grading and dynamic lighting adjustments utilizing AI styling models.",
+    "year": "2026"
+  },
+  {
+    "id": "g-diagle",
+    "title": "Diagonal Composition Guide",
+    "category": "Visual experiments",
+    "tag": "Perspective",
+    "image": "/gallery/diagle.png",
+    "aspectRatio": "portrait",
+    "description": "Exploring visual depth and lines using diagonal architecture elements.",
+    "year": "2026"
+  },
+  {
+    "id": "g-closup",
+    "title": "Expressive Portrait Close-Up",
+    "category": "Photos",
+    "tag": "Candid",
+    "image": "/gallery/closup.png",
+    "aspectRatio": "portrait",
+    "description": "Intimate black and white close-up capturing genuine facial expressions.",
+    "year": "2026"
+  },
+  {
+    "id": "g-bride-pose",
+    "title": "Bridal Pose Study",
+    "category": "Photos",
+    "tag": "Portrait",
+    "image": "/gallery/bride pose.png",
+    "aspectRatio": "portrait",
+    "description": "Elegant bridal portrait showcasing intricate gown details and lighting.",
+    "year": "2026"
+  },
+  {
+    "id": "g-wedding-2-",
+    "title": "Golden Hour Wedding",
+    "category": "Photos",
+    "tag": "Wedding",
+    "image": "/gallery/wedding (2).png",
+    "aspectRatio": "portrait",
+    "description": "A beautiful golden hour view of the bride and groom sharing a quiet moment.",
+    "year": "2026"
+  },
+  {
+    "id": "g-wedding",
+    "title": "Wedding Celebration",
+    "category": "Photos",
+    "tag": "Wedding",
+    "image": "/gallery/wedding.png",
+    "aspectRatio": "portrait",
+    "description": "Capturing authentic emotions and celebration during the main wedding ceremony.",
+    "year": "2026"
+  },
+  {
+    "id": "g-abstact",
+    "title": "Abstract Form & Texture",
+    "category": "Visual experiments",
+    "tag": "Abstract",
+    "image": "/gallery/abstact.png",
+    "aspectRatio": "portrait",
+    "description": "Experimental abstract shot focusing on lighting contrast and shape layouts.",
+    "year": "2026"
+  },
+  {
+    "id": "g-rule-of-thoird",
+    "title": "Rule of Thirds Alignment",
+    "category": "Visual experiments",
+    "tag": "Rule of Thirds",
+    "image": "/gallery/rule of thoird.png",
     "aspectRatio": "landscape",
-    "description": "Next-gen lighting experiments with illuminated orange LED venting and matte casing.",
-    "year": "2024"
+    "description": "Grid composition exercise aligning focal points along the rule of thirds grid.",
+    "year": "2026"
+  },
+  {
+    "id": "g-movement",
+    "title": "Dynamic Panning Motion",
+    "category": "Photos",
+    "tag": "Action",
+    "image": "/gallery/movement.png",
+    "aspectRatio": "landscape",
+    "description": "Action panning shot capturing motion blur and dynamic speed patterns.",
+    "year": "2026"
+  },
+  {
+    "id": "g-flower",
+    "title": "Organic Macro Flora",
+    "category": "Photos",
+    "tag": "Nature",
+    "image": "/gallery/flower.png",
+    "aspectRatio": "landscape",
+    "description": "Detailed macro study highlighting the natural patterns and color tones of a flower.",
+    "year": "2026"
+  },
+  {
+    "id": "g-toy",
+    "title": "Miniature Depth Study",
+    "category": "Photos",
+    "tag": "Product Study",
+    "image": "/gallery/toy.png",
+    "aspectRatio": "landscape",
+    "description": "Shallow depth of field studio shoot of a miniature scale toy model.",
+    "year": "2026"
+  },
+  {
+    "id": "g-moon-photogrpahy",
+    "title": "Moon Phase Photography",
+    "category": "Photos",
+    "tag": "Astrophotography",
+    "image": "/gallery/moon photogrpahy.png",
+    "aspectRatio": "landscape",
+    "description": "High-magnification lunar capture showing craters and surface contrast.",
+    "year": "2026"
+  },
+  {
+    "id": "g-shoes-shoot",
+    "title": "Bridal Footwear Detail",
+    "category": "Photos",
+    "tag": "Accessories",
+    "image": "/gallery/shoes shoot.png",
+    "aspectRatio": "landscape",
+    "description": "Macro detail shot of the bride's wedding shoes and accessories.",
+    "year": "2026"
+  },
+  {
+    "id": "g-wedding-pose",
+    "title": "Wedding Couple Portrait",
+    "category": "Photos",
+    "tag": "Wedding",
+    "image": "/gallery/wedding pose.png",
+    "aspectRatio": "portrait",
+    "description": "Styled portrait of the couple highlighting their attire and natural setting.",
+    "year": "2026"
+  },
+  {
+    "id": "g-black-space",
+    "title": "Low-Key Studio Frame",
+    "category": "Frames",
+    "tag": "Minimalism",
+    "image": "/gallery/black space.png",
+    "aspectRatio": "landscape",
+    "description": "Deep contrast and negative space frame study focusing on dark tones.",
+    "year": "2026"
+  },
+  {
+    "id": "g-golden-ratio",
+    "title": "Golden Ratio Geometry Study",
+    "category": "Visual experiments",
+    "tag": "Composition",
+    "image": "/gallery/golden ratio.png",
+    "aspectRatio": "portrait",
+    "description": "Golden spiral overlay demonstrating classical balance and focal scaling.",
+    "year": "2026"
+  },
+  {
+    "id": "g-tradional-wear",
+    "title": "Traditional Bridal Wear",
+    "category": "Photos",
+    "tag": "Traditional",
+    "image": "/gallery/tradional wear.png",
+    "aspectRatio": "portrait",
+    "description": "A stunning showcase of traditional Indian bridal wear and ornate styling.",
+    "year": "2026"
+  },
+  {
+    "id": "g-file",
+    "title": "Visual Layout Composition",
+    "category": "Frames",
+    "tag": "Graphic Grid",
+    "image": "/gallery/file.png",
+    "aspectRatio": "portrait",
+    "description": "A clean modular grid layout experiment for digital frames.",
+    "year": "2026"
   }
 ]
