@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, MessageCircle, Share2 } from "lucide-react";
 import Image from "next/image";
 
 interface LightboxModalProps {
@@ -162,6 +162,64 @@ export function LightboxModal({
             {currentItem.description && (
               <p className="text-zinc-400 text-sm mt-1">{currentItem.description}</p>
             )}
+
+            {/* Social Share Buttons */}
+            <div className="flex items-center justify-center gap-3 mt-4 pt-3 border-t border-white/10">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 flex items-center gap-1.5 mr-1">
+                <Share2 className="w-3.5 h-3.5 text-[#FF5E14]" />
+                Share Photo:
+              </span>
+              <a
+                href={`https://wa.me/?text=${encodeURIComponent(
+                  `Check out "${currentItem.title}" on Frame Feature! ${typeof window !== "undefined" ? window.location.origin + "/gallery" : ""}`
+                )}`}
+                target="_blank"
+                rel="noreferrer"
+                className="p-1.5 rounded-lg bg-zinc-900/80 hover:bg-[#25D366] text-zinc-400 hover:text-white border border-white/5 transition-all flex items-center justify-center"
+                title="Share on WhatsApp"
+              >
+                <MessageCircle className="w-3.5 h-3.5" />
+              </a>
+              <a
+                href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(
+                  typeof window !== "undefined" ? window.location.origin + "/gallery" : ""
+                )}&text=${encodeURIComponent(`Check out "${currentItem.title}" on Frame Feature!`)}`}
+                target="_blank"
+                rel="noreferrer"
+                className="p-1.5 rounded-lg bg-zinc-900/80 hover:bg-[#1A1A1A] hover:text-white text-zinc-400 border border-white/5 transition-all flex items-center justify-center"
+                title="Share on Twitter"
+              >
+                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </a>
+              <a
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+                  typeof window !== "undefined" ? window.location.origin + "/gallery" : ""
+                )}`}
+                target="_blank"
+                rel="noreferrer"
+                className="p-1.5 rounded-lg bg-zinc-900/80 hover:bg-[#1877F2] hover:text-white text-zinc-400 border border-white/5 transition-all flex items-center justify-center"
+                title="Share on Facebook"
+              >
+                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.8c4.56-.93 8-4.96 8-9.8z" />
+                </svg>
+              </a>
+              <a
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+                  typeof window !== "undefined" ? window.location.origin + "/gallery" : ""
+                )}`}
+                target="_blank"
+                rel="noreferrer"
+                className="p-1.5 rounded-lg bg-zinc-900/80 hover:bg-[#0A66C2] hover:text-white text-zinc-400 border border-white/5 transition-all flex items-center justify-center"
+                title="Share on LinkedIn"
+              >
+                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </motion.div>

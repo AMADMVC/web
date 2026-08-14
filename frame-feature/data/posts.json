@@ -1,5 +1,67 @@
 [
   {
+    "id": "post-3",
+    "slug": "image-seo-for-wedding-photographers",
+    "title": "The Wedding Photographer Nobody Could Find — Until the Images Themselves Started Working for Her",
+    "metaTitle": "Image SEO Tips for Wedding & Portrait Photographers",
+    "metaDescription": "A wedding photographer's site was invisible in search. See how smarter formats, alt text, and compression turned her portfolio into a lead source.",
+    "excerpt": "A wedding photographer's portfolio was invisible in Google Images despite stunning work. Here's how she used image SEO — the right formats, alt text, compression, and schema markup — to fix slow load times and start ranking (and booking clients) again.",
+    "category": "Visuals",
+    "categoryKey": "visuals",
+    "featured": false,
+    "publishedAt": "Aug 14, 2026",
+    "readTime": "5 min read",
+    "author": {
+      "name": "Amaan",
+      "role": "Visual & AI Creator",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80"
+    },
+    "coverImage": "/blog/image-seo-for-wedding-photographers.png",
+    "tags": [
+      "image SEO",
+      "photography SEO",
+      "portfolio website",
+      "wedding photography",
+      "WebP",
+      "AVIF",
+      "alt text",
+      "Core Web Vitals",
+      "image compression",
+      "Google Images"
+    ],
+    "tableOfContents": [
+      {
+        "id": "1-the-wake-up-call-portfolio-vulnerability",
+        "title": "1. The Wake-Up Call: Portfolio Vulnerability"
+      },
+      {
+        "id": "2-choosing-formats-quality-vs-speed",
+        "title": "2. Choosing Formats: Quality vs. Speed"
+      },
+      {
+        "id": "3-smarter-alt-text-image-to-search-result",
+        "title": "3. Smarter Alt Text: Image to Search Result"
+      },
+      {
+        "id": "4-compression-without-compromising-the-craft",
+        "title": "4. Compression Without Compromising the Craft"
+      },
+      {
+        "id": "5-responsive-delivery-the-right-screen-size",
+        "title": "5. Responsive Delivery: The Right Screen Size"
+      },
+      {
+        "id": "6-schema-markup-structured-search-marketing",
+        "title": "6. Schema Markup: Structured Search Marketing"
+      },
+      {
+        "id": "7-results-from-invisible-to-booked-out",
+        "title": "7. Results: From Invisible to Booked Out"
+      }
+    ],
+    "rawContent": "## 1. The Wake-Up Call: Portfolio Vulnerability\n\nJordan had built her wedding photography portfolio the way most photographers do: image first, everything else second. Full-resolution shots of golden-hour first dances, tearful vows, and candid reception moments filled every page. It was, by any visual measure, gorgeous work. But her inquiry form had gone quiet, and when she finally checked her analytics, the truth stung — her site barely showed up in regular search, and it was completely absent from Google Images, even for a phrase as specific as \"outdoor wedding photographer golden hour.\"\n\nFor a photographer, that's not a minor inconvenience. Image search **is** the storefront. So Jordan dug into what was actually happening under the hood of her site, and what she found changed how she thought about **photography SEO** for good.\n\nA speed test told her what she feared. Her homepage gallery alone was pulling in over 15MB of images, all uncompressed camera exports. For most businesses that's bad. For a photographer, it's almost self-defeating — the very thing meant to prove her skill was driving visitors away before the page even finished loading. Slow-loading images hurt page speed, and page speed feeds directly into Core Web Vitals, which search engines weigh when deciding who ranks and who doesn't. Her portfolio was, in effect, competing with itself.\n\n---\n\n## 2. Choosing Formats: Quality vs. Speed\n\nPhotographers have a harder format decision than most, because image quality **is** the product. Jordan learned that WebP typically delivers files 25–34% smaller than JPEG at comparable quality, while AVIF can shrink files another 20–30% beyond WebP, sometimes cutting file size in half versus a traditional JPEG.\n\nFor her full galleries and hero images, she moved to WebP with an AVIF option for supported browsers, using the `<picture>` element to fall back gracefully to JPEG for anyone on an older browser. For the handful of showcase prints she wanted to display at maximum fidelity — the images she was proudest of — she kept a lossless option available rather than compressing away every last detail.\n\n---\n\n## 3. Smarter Alt Text: Image to Search Result\n\nJordan's alt text, when it existed at all, said things like \"IMG_4821\" or \"wedding photo.\" Neither told search engines — or a visually impaired bride researching photographers — anything useful.\n\nShe rewrote her portfolio descriptions to be specific and grounded in real detail: *\"Bride and groom first dance under string lights at outdoor vineyard wedding\"* instead of nothing at all. She kept most descriptions under roughly 125 characters, skipped filler phrases like \"image of,\" and made sure decorative flourishes on the page carried an empty alt attribute so they wouldn't clutter a screen reader. The result read naturally, and it also happened to contain exactly the kind of descriptive, location-and-style language couples search for.\n\n---\n\n## 4. Compression Without Compromising the Craft\n\nThis was the trade-off Jordan worried about most. Would compression flatten the very detail she'd spent hours editing? She learned that:\n- **Lossless compression** preserves every pixel and makes sense for showcase pieces meant to demonstrate technical quality.\n- **Lossy compression** — nearly imperceptible at the right settings — is what keeps a 40-image gallery from taking forever to load.\n\nHer practice settled into a rhythm: resize every image to its actual display size first, apply lossy compression to full galleries, and reserve lossless treatment for the small set of hero and print-quality images where every detail needed to survive.\n\n---\n\n## 5. Responsive Delivery: The Right Screen Size\n\nA bride swiping through a gallery on her phone during a lunch break doesn't need the same 4000-pixel file a desktop visitor gets on a large monitor.\n\nJordan implemented `srcset` and `sizes` so browsers could automatically choose an appropriately sized image for each device, dramatically cutting mobile load times without sacrificing quality on larger screens. She also specified image dimensions up front so thumbnails stopped shifting the page around as they loaded — a fix that improved both user experience and her Core Web Vitals scores in one move.\n\n---\n\n## 6. Schema Markup: Structured Search Marketing\n\nThe final piece was structured data. By adding `ImageObject` schema — including captions, dimensions, and descriptive names — Jordan gave search engines richer context about each photograph. That made her images eligible for more prominent treatment in Google Images results, the kind of extra visual detail that catches a scrolling bride-to-be's eye and earns a click through to the portfolio instead of a competitor's.\n\n---\n\n## 7. Results: From Invisible to Booked Out\n\nWithin a few months, Jordan's load times dropped sharply, her bounce rate fell, and her portfolio started appearing in Google Images for exactly the searches her ideal clients were typing — \"golden hour wedding photography,\" \"candid outdoor wedding photographer.\"\n\nInquiry forms started filling up again, several couples mentioning they'd found her \"through a photo,\" which was, in a way, exactly the plan all along.\n\nNothing about Jordan's photography changed. The light was still golden, the compositions still hers. What changed was whether the internet could actually find and reward that work. That's the real promise of image SEO for photographers: it doesn't ask you to shrink your standards, only to make sure the images speak loudly enough for search engines — and future clients -- to hear them."
+  },
+  {
     "id": "post-1",
     "slug": "how-ai-transforms-visual-storytelling",
     "title": "How AI Transforms Visual Storytelling Without Losing the Human Touch",
