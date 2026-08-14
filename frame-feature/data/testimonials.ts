@@ -49,7 +49,7 @@ export const testimonialsData: TestimonialItem[] = [
     clientName: "Samantha Reed",
     clientRole: "Head of Marketing",
     company: "Chrono SaaS Suite",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+    avatar: "/gallery/1786386563351-Founder.JPG",
     quote: "The design system and Next.js frontend cut our team's feature shipping time in half. Our customers constantly praise how fluid, intuitive, and modern the interface is.",
     rating: 5,
     metric: "3x Faster",

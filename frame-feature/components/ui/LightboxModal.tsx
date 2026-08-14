@@ -148,7 +148,8 @@ export function LightboxModal({
           >
             <Image
               src={currentItem.image}
-              alt={currentItem.title}
+              alt={`${currentItem.title} - Best Affordable Photographer in Delhi`}
+              title={currentItem.title}
               fill
               className="object-contain"
               sizes="(max-width: 1200px) 100vw, 1200px"

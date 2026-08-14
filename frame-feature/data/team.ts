@@ -20,7 +20,7 @@ export const teamMembers: TeamMember[] = [
     name: "Alex Vance",
     role: "Founder & Chief Creative Technologist",
     department: "Leadership",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
+    avatar: "/gallery/1786386563351-Founder.JPG",
     bio: "Pioneering the intersection of spatial computing, generative design, and high-performance web systems for 12+ years.",
     skills: ["Creative Direction", "Three.js", "System Architecture", "Brand Strategy"],
     socials: {

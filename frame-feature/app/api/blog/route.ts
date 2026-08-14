@@ -69,7 +69,7 @@ export async function POST(request: NextRequest) {
         role: authorRole || "Visual & AI Creator",
         avatar:
           authorAvatar ||
-          "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
+          "/gallery/1786386563351-Founder.JPG",
       },
       coverImage:
         coverImage ||

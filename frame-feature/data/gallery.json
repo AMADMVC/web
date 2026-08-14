@@ -1,5 +1,15 @@
 [
   {
+    "id": "g-custom-wedding-seo",
+    "title": "Stressed Photographer's Portfolio Edit",
+    "category": "Photos",
+    "tag": "Photography SEO",
+    "image": "/gallery/image-seo-for-wedding-photographers.png",
+    "aspectRatio": "landscape",
+    "description": "Jordan editing her golden-hour portfolio shots, fighting slow load times to build page speed and Google Images ranking.",
+    "year": "2026"
+  },
+  {
     "id": "g-custom-1",
     "title": "Visual Frame Study — Optics & Composition",
     "category": "Photos",
