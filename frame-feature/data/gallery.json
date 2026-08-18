@@ -1,5 +1,215 @@
 [
   {
+    "id": "g-ff-productshoot-001",
+    "title": "Product Shoot - Frame 001",
+    "category": "Photos",
+    "tag": "Product Study",
+    "image": "/gallery/FF_productshoot_001.webp",
+    "aspectRatio": "portrait",
+    "description": "High-fidelity commercial product study showcasing dynamic contrast, lighting, and composition details.",
+    "year": "2026"
+  },
+  {
+    "id": "g-ff-productshoot-002",
+    "title": "Product Shoot - Frame 002",
+    "category": "Photos",
+    "tag": "Product Study",
+    "image": "/gallery/FF_productshoot_002.webp",
+    "aspectRatio": "landscape",
+    "description": "High-fidelity commercial product study showcasing dynamic contrast, lighting, and composition details.",
+    "year": "2026"
+  },
+  {
+    "id": "g-ff-productshoot-003",
+    "title": "Product Shoot - Frame 003",
+    "category": "Photos",
+    "tag": "Product Study",
+    "image": "/gallery/FF_productshoot_003.webp",
+    "aspectRatio": "landscape",
+    "description": "High-fidelity commercial product study showcasing dynamic contrast, lighting, and composition details.",
+    "year": "2026"
+  },
+  {
+    "id": "g-ff-productshoot-004",
+    "title": "Product Shoot - Frame 004",
+    "category": "Photos",
+    "tag": "Product Study",
+    "image": "/gallery/FF_productshoot_004.webp",
+    "aspectRatio": "landscape",
+    "description": "High-fidelity commercial product study showcasing dynamic contrast, lighting, and composition details.",
+    "year": "2026"
+  },
+  {
+    "id": "g-ff-productshoot-005",
+    "title": "Product Shoot - Frame 005",
+    "category": "Photos",
+    "tag": "Product Study",
+    "image": "/gallery/FF_productshoot_005.webp",
+    "aspectRatio": "portrait",
+    "description": "High-fidelity commercial product study showcasing dynamic contrast, lighting, and composition details.",
+    "year": "2026"
+  },
+  {
+    "id": "g-ff-productshoot-006",
+    "title": "Product Shoot - Frame 006",
+    "category": "Photos",
+    "tag": "Product Study",
+    "image": "/gallery/FF_productshoot_006.webp",
+    "aspectRatio": "landscape",
+    "description": "High-fidelity commercial product study showcasing dynamic contrast, lighting, and composition details.",
+    "year": "2026"
+  },
+  {
+    "id": "g-ff-productshoot-007",
+    "title": "Product Shoot - Frame 007",
+    "category": "Photos",
+    "tag": "Product Study",
+    "image": "/gallery/FF_productshoot_007.webp",
+    "aspectRatio": "landscape",
+    "description": "High-fidelity commercial product study showcasing dynamic contrast, lighting, and composition details.",
+    "year": "2026"
+  },
+  {
+    "id": "g-ff-productshoot-008",
+    "title": "Product Shoot - Frame 008",
+    "category": "Photos",
+    "tag": "Product Study",
+    "image": "/gallery/FF_productshoot_008.webp",
+    "aspectRatio": "portrait",
+    "description": "High-fidelity commercial product study showcasing dynamic contrast, lighting, and composition details.",
+    "year": "2026"
+  },
+  {
+    "id": "g-ff-productshoot-009",
+    "title": "Product Shoot - Frame 009",
+    "category": "Photos",
+    "tag": "Product Study",
+    "image": "/gallery/FF_productshoot_009.webp",
+    "aspectRatio": "landscape",
+    "description": "High-fidelity commercial product study showcasing dynamic contrast, lighting, and composition details.",
+    "year": "2026"
+  },
+  {
+    "id": "g-ff-productshoot-010",
+    "title": "Product Shoot - Frame 010",
+    "category": "Photos",
+    "tag": "Product Study",
+    "image": "/gallery/FF_productshoot_010.webp",
+    "aspectRatio": "landscape",
+    "description": "High-fidelity commercial product study showcasing dynamic contrast, lighting, and composition details.",
+    "year": "2026"
+  },
+  {
+    "id": "g-ff-productshoot-011",
+    "title": "Product Shoot - Frame 011",
+    "category": "Photos",
+    "tag": "Product Study",
+    "image": "/gallery/FF_productshoot_011.webp",
+    "aspectRatio": "landscape",
+    "description": "High-fidelity commercial product study showcasing dynamic contrast, lighting, and composition details.",
+    "year": "2026"
+  },
+  {
+    "id": "g-ff-productshoot-012",
+    "title": "Product Shoot - Frame 012",
+    "category": "Photos",
+    "tag": "Product Study",
+    "image": "/gallery/FF_productshoot_012.webp",
+    "aspectRatio": "landscape",
+    "description": "High-fidelity commercial product study showcasing dynamic contrast, lighting, and composition details.",
+    "year": "2026"
+  },
+  {
+    "id": "g-ff-productshoot-013",
+    "title": "Product Shoot - Frame 013",
+    "category": "Photos",
+    "tag": "Product Study",
+    "image": "/gallery/FF_productshoot_013.webp",
+    "aspectRatio": "landscape",
+    "description": "High-fidelity commercial product study showcasing dynamic contrast, lighting, and composition details.",
+    "year": "2026"
+  },
+  {
+    "id": "g-ff-productshoot-014",
+    "title": "Product Shoot - Frame 014",
+    "category": "Photos",
+    "tag": "Product Study",
+    "image": "/gallery/FF_productshoot_014.webp",
+    "aspectRatio": "portrait",
+    "description": "High-fidelity commercial product study showcasing dynamic contrast, lighting, and composition details.",
+    "year": "2026"
+  },
+  {
+    "id": "g-ff-productshoot-015",
+    "title": "Product Shoot - Frame 015",
+    "category": "Photos",
+    "tag": "Product Study",
+    "image": "/gallery/FF_productshoot_015.webp",
+    "aspectRatio": "landscape",
+    "description": "High-fidelity commercial product study showcasing dynamic contrast, lighting, and composition details.",
+    "year": "2026"
+  },
+  {
+    "id": "g-ff-productshoot-016",
+    "title": "Product Shoot - Frame 016",
+    "category": "Photos",
+    "tag": "Product Study",
+    "image": "/gallery/FF_productshoot_016.webp",
+    "aspectRatio": "landscape",
+    "description": "High-fidelity commercial product study showcasing dynamic contrast, lighting, and composition details.",
+    "year": "2026"
+  },
+  {
+    "id": "g-ff-productshoot-017",
+    "title": "Product Shoot - Frame 017",
+    "category": "Photos",
+    "tag": "Product Study",
+    "image": "/gallery/FF_productshoot_017.webp",
+    "aspectRatio": "landscape",
+    "description": "High-fidelity commercial product study showcasing dynamic contrast, lighting, and composition details.",
+    "year": "2026"
+  },
+  {
+    "id": "g-ff-productshoot-018",
+    "title": "Product Shoot - Frame 018",
+    "category": "Photos",
+    "tag": "Product Study",
+    "image": "/gallery/FF_productshoot_018.webp",
+    "aspectRatio": "portrait",
+    "description": "High-fidelity commercial product study showcasing dynamic contrast, lighting, and composition details.",
+    "year": "2026"
+  },
+  {
+    "id": "g-ff-productshoot-019",
+    "title": "Product Shoot - Frame 019",
+    "category": "Photos",
+    "tag": "Product Study",
+    "image": "/gallery/FF_productshoot_019.webp",
+    "aspectRatio": "portrait",
+    "description": "High-fidelity commercial product study showcasing dynamic contrast, lighting, and composition details.",
+    "year": "2026"
+  },
+  {
+    "id": "g-ff-productshoot-020",
+    "title": "Product Shoot - Frame 020",
+    "category": "Photos",
+    "tag": "Product Study",
+    "image": "/gallery/FF_productshoot_020.webp",
+    "aspectRatio": "portrait",
+    "description": "High-fidelity commercial product study showcasing dynamic contrast, lighting, and composition details.",
+    "year": "2026"
+  },
+  {
+    "id": "g-ff-productshoot-021",
+    "title": "Product Shoot - Frame 021",
+    "category": "Photos",
+    "tag": "Product Study",
+    "image": "/gallery/FF_productshoot_021.webp",
+    "aspectRatio": "landscape",
+    "description": "High-fidelity commercial product study showcasing dynamic contrast, lighting, and composition details.",
+    "year": "2026"
+  },
+  {
     "title": "Boy Candid",
     "category": "Photos",
     "tag": "Photography",
