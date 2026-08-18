@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     },
   },
   title: {
-    default: "Frame Feature | Visual Thinking × AI Execution",
+    default: "Frame Feature | Best Photographer and Visual Expert in Delhi",
     template: "%s | Frame Feature",
   },
   description:
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Amaan" }],
   openGraph: {
-    title: "Frame Feature | Visual Thinking × AI Execution",
+    title: "Frame Feature | Best Photographer and Visual Expert in Delhi",
     description:
       "Turning ideas into visual content using cameras, editing, and generative AI workflows.",
     type: "website",
