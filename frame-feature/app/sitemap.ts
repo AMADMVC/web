@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { getAllPosts } from "@/utils/blogStorage";
 import { getAllWorkItems } from "@/utils/workStorage";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://framefeature.com";
   const currentDate = new Date().toISOString();
 
@@ -59,7 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Dynamic Blog Posts
-  const posts = getAllPosts();
+  const posts = await getAllPosts();
   const blogRoutes: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: currentDate,
@@ -68,7 +68,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // Dynamic Work Case Stories
-  const workItems = getAllWorkItems();
+  const workItems = await getAllWorkItems();
   const workRoutes: MetadataRoute.Sitemap = workItems.map((item) => ({
     url: `${baseUrl}/work/${item.slug}`,
     lastModified: currentDate,
@@ -78,3 +78,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [...staticRoutes, ...blogRoutes, ...workRoutes];
 }
+

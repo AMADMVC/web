@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
+import { ref, uploadBytes, getDownloadURL, listAll } from "firebase/storage";
+import { storage } from "@/lib/firebase";
 
 export async function POST(req: NextRequest) {
   try {
@@ -13,20 +13,14 @@ export async function POST(req: NextRequest) {
     }
 
     const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
 
     // Sanitize filename
     const cleanFileName = `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.-]/g, "_")}`;
-    const targetDir = path.join(process.cwd(), "public", folder);
-
-    if (!fs.existsSync(targetDir)) {
-      fs.mkdirSync(targetDir, { recursive: true });
-    }
-
-    const targetPath = path.join(targetDir, cleanFileName);
-    fs.writeFileSync(targetPath, buffer);
-
-    const publicUrl = `/${folder}/${cleanFileName}`;
+    const storageRef = ref(storage, `${folder}/${cleanFileName}`);
+    
+    // Upload bytes to Firebase Storage
+    const uploadResult = await uploadBytes(storageRef, bytes);
+    const publicUrl = await getDownloadURL(uploadResult.ref);
 
     return NextResponse.json({
       success: true,
@@ -41,3 +35,57 @@ export async function POST(req: NextRequest) {
     );
   }
 }
+
+export async function GET(req: NextRequest) {
+  try {
+    const { searchParams } = new URL(req.url);
+    const folder = searchParams.get("folder") || "gallery";
+
+    // Safety check to prevent directory traversal
+    if (folder.includes("..") || folder.includes("/") || folder.includes("\\")) {
+      return NextResponse.json({ error: "Invalid folder name" }, { status: 400 });
+    }
+
+    let files: string[] = [];
+
+    // 1. Read local files from public folder if they exist
+    try {
+      const path = await import("path");
+      const fs = await import("fs");
+      const targetDir = path.join(process.cwd(), "public", folder);
+      if (fs.existsSync(targetDir)) {
+        const localFiles = fs.readdirSync(targetDir)
+          .filter((file) => {
+            const ext = path.extname(file).toLowerCase();
+            return [".jpg", ".jpeg", ".png", ".webp", ".gif", ".svg"].includes(ext);
+          });
+        files = [...localFiles];
+      }
+    } catch (e) {
+      console.warn("Could not read local files:", e);
+    }
+
+    // 2. Read files from Firebase Storage folder
+    try {
+      const folderRef = ref(storage, folder);
+      const listResult = await listAll(folderRef);
+      const firebaseFiles = listResult.items.map((item) => item.name);
+      files = [...files, ...firebaseFiles];
+    } catch (e) {
+      console.warn("Could not read firebase files:", e);
+    }
+
+    // De-duplicate and sort
+    const uniqueFiles = Array.from(new Set(files)).sort((a, b) => a.localeCompare(b));
+
+    return NextResponse.json({ files: uniqueFiles });
+  } catch (error: any) {
+    console.error("List files error:", error);
+    return NextResponse.json(
+      { error: error.message || "Failed to list files" },
+      { status: 500 }
+    );
+  }
+}
+
+

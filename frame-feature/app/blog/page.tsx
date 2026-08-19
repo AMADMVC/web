@@ -13,9 +13,8 @@ export const metadata: Metadata = {
   description:
     "Explore in-depth articles on AI workflows, visual storytelling, photography composition, and content structure.",
 };
-
-export default function BlogIndexPage() {
-  const posts = getAllPosts();
+export default async function BlogIndexPage() {
+  const posts = await getAllPosts();
   const featuredPost = posts.find((p) => p.featured) || posts[0];
   const regularPosts = posts.filter((p) => p.id !== featuredPost?.id);
 

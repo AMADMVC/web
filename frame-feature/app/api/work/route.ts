@@ -8,14 +8,14 @@ export async function GET(request: NextRequest) {
     const slug = searchParams.get("slug");
 
     if (slug) {
-      const item = getWorkItemBySlug(slug);
+      const item = await getWorkItemBySlug(slug);
       if (!item) {
         return NextResponse.json({ error: "Project not found" }, { status: 404 });
       }
       return NextResponse.json({ item });
     }
 
-    const items = getAllWorkItems();
+    const items = await getAllWorkItems();
     return NextResponse.json({ items });
   } catch (error) {
     console.error("Error in GET /api/work:", error);
@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
       summary?.trim() ||
       idea.slice(0, 155);
 
-    const saved = saveWorkItem({
+    const saved = await saveWorkItem({
       title: title.trim(),
       slug: finalSlug,
       metaTitle: finalMetaTitle,
@@ -104,7 +104,7 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: "Slug is required" }, { status: 400 });
     }
 
-    const deleted = deleteWorkItem(slug);
+    const deleted = await deleteWorkItem(slug);
     if (!deleted) {
       return NextResponse.json({ error: "Project not found" }, { status: 404 });
     }

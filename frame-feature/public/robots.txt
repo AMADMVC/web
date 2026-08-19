@@ -2,10 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /admin/*
-Disallow: /blog/new
-Disallow: /gallery/new
-Disallow: /work/new
 Disallow: /api/*
 
 Sitemap: https://framefeature.com/sitemap.xml
-Sitemap: https://framefeature.in/sitemap.xml

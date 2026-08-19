@@ -3,7 +3,7 @@ import { getAllGalleryItems, saveGalleryItem } from "@/utils/galleryStorage";
 
 export async function GET() {
   try {
-    const items = getAllGalleryItems();
+    const items = await getAllGalleryItems();
     return NextResponse.json({ items });
   } catch (error) {
     console.error("Error in GET /api/gallery:", error);
@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const saved = saveGalleryItem({
+    const saved = await saveGalleryItem({
       title: title.trim(),
       category: category || "Visual experiments",
       tag: tag?.trim() || "Visual",

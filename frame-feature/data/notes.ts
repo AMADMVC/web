@@ -9,6 +9,7 @@ export interface NoteItem {
   summary: string;
   content: string[];
   takeaway: string;
+  socialEmbed?: string;
 }
 
 export const notesData: NoteItem[] = [

@@ -9,16 +9,12 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           "/admin",
           "/admin/*",
-          "/blog/new",
-          "/gallery/new",
-          "/work/new",
           "/api/*",
         ],
       },
     ],
     sitemap: [
       "https://framefeature.com/sitemap.xml",
-      "https://framefeature.in/sitemap.xml",
     ],
   };
 }

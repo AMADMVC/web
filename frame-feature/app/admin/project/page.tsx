@@ -129,7 +129,7 @@ export default function NewWorkProjectPage() {
 
         setSuccessMsg("Project published successfully! Redirecting...");
         setTimeout(() => {
-          router.push(`/work/${data.item.slug}`);
+          router.push("/admin");
           router.refresh();
         }, 1100);
       } catch (err: unknown) {
@@ -148,6 +148,7 @@ export default function NewWorkProjectPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumb
             segments={[
+              { label: "Admin", href: "/admin" },
               { label: "Work", href: "/work" },
               { label: "Publish Project Story" },
             ]}
@@ -258,11 +259,11 @@ export default function NewWorkProjectPage() {
                 {/* Cover Image & Meta */}
                 <div className="lg:col-span-4 space-y-4">
                   <ImageUploadInput
-                  label="Featured Image"
-                  folder="work"
-                  value={image}
-                  onChange={setImage}
-                />
+                    label="Featured Image"
+                    folder="work"
+                    value={image}
+                    onChange={setImage}
+                  />
 
                   <div className="relative h-36 w-full rounded-2xl overflow-hidden bg-zinc-950 border border-white/10 shadow-inner">
                     {image ? (
@@ -487,12 +488,12 @@ export default function NewWorkProjectPage() {
             {/* 4. SUBMIT BAR */}
             <div className="p-6 rounded-3xl bg-zinc-900/80 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-xs text-zinc-400">
-                Saves to <code className="text-[#FF7A1A]">data/work.json</code> and live immediately.
+                Saves to <code className="text-[#FF7A1A]">Firebase Firestore</code> and live immediately.
               </div>
 
               <div className="flex items-center gap-3 w-full sm:w-auto">
                 <Link
-                  href="/work"
+                  href="/admin"
                   className="px-5 py-3 rounded-full bg-zinc-800 text-zinc-300 hover:text-white text-xs font-bold uppercase tracking-wider text-center flex-1 sm:flex-none"
                 >
                   Cancel

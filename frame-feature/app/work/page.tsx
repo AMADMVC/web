@@ -136,7 +136,7 @@ export default function WorkPage() {
             <p className="text-zinc-400 text-sm max-w-md mx-auto">
               Publish your first project story using the dedicated storytelling studio.
             </p>
-            <Button href="/work/new" size="md">
+            <Button href="/admin/project" size="md">
               + Publish Project
             </Button>
           </div>

@@ -140,7 +140,7 @@ export default function NewBlogPage() {
 
         setSuccessMsg("Blog published successfully! Redirecting...");
         setTimeout(() => {
-          router.push(`/blog/${data.post.slug}`);
+          router.push("/admin");
           router.refresh();
         }, 1200);
       } catch (err: unknown) {
@@ -253,6 +253,7 @@ export default function NewBlogPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumb
             segments={[
+              { label: "Admin", href: "/admin" },
               { label: "Blog", href: "/blog" },
               { label: "Manual Publisher Studio" },
             ]}
@@ -724,12 +725,12 @@ export default function NewBlogPage() {
             {/* BOTTOM SUBMIT BAR */}
             <div className="p-6 rounded-3xl bg-zinc-900/80 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-xs text-zinc-400">
-                Your article will be saved to <code className="text-[#FF7A1A]">data/posts.json</code> and live immediately.
+                Your article will be saved to <code className="text-[#FF7A1A]">Firebase Firestore</code> and live immediately.
               </div>
 
               <div className="flex items-center gap-3 w-full sm:w-auto">
                 <Link
-                  href="/blog"
+                  href="/admin"
                   className="px-5 py-3 rounded-full bg-zinc-800 text-zinc-300 hover:text-white text-xs font-bold uppercase tracking-wider text-center flex-1 sm:flex-none"
                 >
                   Cancel

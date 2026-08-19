@@ -23,7 +23,7 @@ import type { Metadata } from "next";
 import { WorkAdminBar } from "@/components/work/WorkAdminBar";
 
 export async function generateStaticParams() {
-  const items = getAllWorkItems();
+  const items = await getAllWorkItems();
   return items.map((item) => ({
     slug: item.slug,
   }));
@@ -35,7 +35,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const item = getWorkItemBySlug(slug);
+  const item = await getWorkItemBySlug(slug);
   if (!item) return { title: "Project Story Not Found | Frame Feature" };
 
   const metaTitle = item.metaTitle || `${item.title} | Frame Feature Work`;
@@ -73,13 +73,13 @@ export default async function WorkDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const item = getWorkItemBySlug(slug);
+  const item = await getWorkItemBySlug(slug);
 
   if (!item) {
     notFound();
   }
 
-  const allItems = getAllWorkItems();
+  const allItems = await getAllWorkItems();
   const relatedItems = allItems.filter((w) => w.id !== item.id).slice(0, 2);
 
   return (

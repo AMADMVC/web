@@ -126,15 +126,22 @@ export default function GalleryPage() {
                       : "h-80"
                   } overflow-hidden bg-zinc-950`}
                 >
-                  <Image
-                    src={item.image}
-                    alt={`${item.title} - Best Affordable Photographer in Delhi`}
-                    title={item.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    unoptimized
-                  />
+                  {item.mediaType === "iframe" && item.iframeEmbed ? (
+                    <div
+                      className="w-full h-full pointer-events-none [&_iframe]:w-full [&_iframe]:h-full [&_iframe]:border-none"
+                      dangerouslySetInnerHTML={{ __html: item.iframeEmbed }}
+                    />
+                  ) : (
+                    <Image
+                      src={item.image}
+                      alt={`${item.title} - Best Affordable Photographer in Delhi`}
+                      title={item.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      unoptimized
+                    />
+                  )}
 
                   {/* Category badge */}
                   <div className="absolute top-3.5 left-3.5">

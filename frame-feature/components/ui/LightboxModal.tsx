@@ -13,6 +13,8 @@ interface LightboxModalProps {
     image: string;
     description?: string;
     tag?: string;
+    mediaType?: "image" | "iframe";
+    iframeEmbed?: string;
   }[];
   currentIndex: number;
   onNavigate: (index: number) => void;
@@ -139,22 +141,34 @@ export function LightboxModal({
           <motion.div
             key={currentIndex}
             initial={{ scale: 0.95, opacity: 0 }}
-            animate={{ scale: isZoomed ? 1.3 : 1, opacity: 1 }}
+            animate={{ scale: isZoomed && currentItem.mediaType !== "iframe" ? 1.3 : 1, opacity: 1 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className={`relative w-full h-[55vh] sm:h-[65vh] rounded-2xl overflow-hidden shadow-2xl border border-white/10 transition-all cursor-${
-              isZoomed ? "zoom-out" : "zoom-in"
+            className={`relative w-full h-[55vh] sm:h-[65vh] rounded-2xl overflow-hidden shadow-2xl border border-white/10 transition-all ${
+              currentItem.mediaType === "iframe" ? "cursor-default" : isZoomed ? "cursor-zoom-out" : "cursor-zoom-in"
             }`}
-            onClick={() => setIsZoomed(!isZoomed)}
+            onClick={() => {
+              if (currentItem.mediaType !== "iframe") {
+                setIsZoomed(!isZoomed);
+              }
+            }}
           >
-            <Image
-              src={currentItem.image}
-              alt={`${currentItem.title} - Best Affordable Photographer in Delhi`}
-              title={currentItem.title}
-              fill
-              className="object-contain"
-              sizes="(max-width: 1200px) 100vw, 1200px"
-              priority
-            />
+            {currentItem.mediaType === "iframe" && currentItem.iframeEmbed ? (
+              <div
+                className="w-full h-full [&_iframe]:w-full [&_iframe]:h-full [&_iframe]:border-none bg-black"
+                dangerouslySetInnerHTML={{ __html: currentItem.iframeEmbed }}
+                onClick={(e) => e.stopPropagation()}
+              />
+            ) : (
+              <Image
+                src={currentItem.image}
+                alt={`${currentItem.title} - Best Affordable Photographer in Delhi`}
+                title={currentItem.title}
+                fill
+                className="object-contain"
+                sizes="(max-width: 1200px) 100vw, 1200px"
+                priority
+              />
+            )}
           </motion.div>
 
           {/* Caption */}

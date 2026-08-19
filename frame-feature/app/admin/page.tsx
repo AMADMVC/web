@@ -16,6 +16,7 @@ import {
   Layers,
   Flame,
   ExternalLink,
+  MessageSquare,
 } from "lucide-react";
 
 export default function AdminDashboardPage() {
@@ -23,25 +24,29 @@ export default function AdminDashboardPage() {
     postsCount: 0,
     galleryCount: 0,
     workCount: 0,
+    notesCount: 0,
     loading: true,
   });
 
   useEffect(() => {
     async function loadStats() {
       try {
-        const [postsRes, galleryRes, workRes] = await Promise.all([
+        const [postsRes, galleryRes, workRes, notesRes] = await Promise.all([
           fetch("/api/blog"),
           fetch("/api/gallery"),
           fetch("/api/work"),
+          fetch("/api/notes"),
         ]);
         const postsData = await postsRes.json();
         const galleryData = await galleryRes.json();
         const workData = await workRes.json();
+        const notesData = await notesRes.json();
 
         setStats({
           postsCount: postsData.posts?.length || 0,
           galleryCount: galleryData.items?.length || 0,
           workCount: workData.items?.length || 0,
+          notesCount: notesData.items?.length || 0,
           loading: false,
         });
       } catch (e) {
@@ -75,7 +80,7 @@ export default function AdminDashboardPage() {
           </div>
 
           {/* QUICK METRICS */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             <div className="p-6 rounded-3xl bg-zinc-900/60 border border-white/10 space-y-2">
               <div className="text-xs font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-2">
                 <FileText className="w-4 h-4 text-[#FF5E14]" />
@@ -129,6 +134,24 @@ export default function AdminDashboardPage() {
                 <ExternalLink className="w-3 h-3" />
               </Link>
             </div>
+
+            <div className="p-6 rounded-3xl bg-zinc-900/60 border border-white/10 space-y-2">
+              <div className="text-xs font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-2">
+                <MessageSquare className="w-4 h-4 text-[#FF5E14]" />
+                <span>Short Notes Stream</span>
+              </div>
+              <div className="text-3xl font-black text-white">
+                {stats.loading ? "..." : stats.notesCount}
+              </div>
+              <Link
+                href="/notes"
+                target="_blank"
+                className="text-xs text-[#FF7A1A] font-bold flex items-center gap-1 hover:underline pt-1"
+              >
+                <span>View Public Page</span>
+                <ExternalLink className="w-3 h-3" />
+              </Link>
+            </div>
           </div>
 
           {/* 3 CORE PUBLISHING STUDIOS */}
@@ -137,7 +160,7 @@ export default function AdminDashboardPage() {
               Content Publishing Modules
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {/* 1. Blog Publisher */}
               <div className="p-8 rounded-3xl bg-zinc-900/70 border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#FF5E14]/40 transition-all shadow-xl">
                 <div className="space-y-4">
@@ -150,7 +173,7 @@ export default function AdminDashboardPage() {
                   </p>
                 </div>
 
-                <Button href="/blog/new" size="md" icon={<ArrowRight className="w-4 h-4" />}>
+                <Button href="/admin/blog" size="md" icon={<ArrowRight className="w-4 h-4" />}>
                   Open Blog Studio
                 </Button>
               </div>
@@ -167,7 +190,7 @@ export default function AdminDashboardPage() {
                   </p>
                 </div>
 
-                <Button href="/gallery/new" size="md" icon={<ArrowRight className="w-4 h-4" />}>
+                <Button href="/admin/gallery" size="md" icon={<ArrowRight className="w-4 h-4" />}>
                   Open Gallery Studio
                 </Button>
               </div>
@@ -184,8 +207,25 @@ export default function AdminDashboardPage() {
                   </p>
                 </div>
 
-                <Button href="/work/new" size="md" icon={<ArrowRight className="w-4 h-4" />}>
+                <Button href="/admin/project" size="md" icon={<ArrowRight className="w-4 h-4" />}>
                   Open Work Studio
+                </Button>
+              </div>
+
+              {/* 4. Notes Studio */}
+              <div className="p-8 rounded-3xl bg-zinc-900/70 border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#FF5E14]/40 transition-all shadow-xl">
+                <div className="space-y-4">
+                  <div className="w-12 h-12 rounded-2xl bg-[#FF5E14]/15 border border-[#FF5E14]/30 text-[#FF5E14] flex items-center justify-center">
+                    <MessageSquare className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">Write Short Note</h3>
+                  <p className="text-xs text-zinc-400 leading-relaxed">
+                    Publish raw thoughts, observations, learnings, and embed related social media updates from Twitter or LinkedIn.
+                  </p>
+                </div>
+
+                <Button href="/admin/note" size="md" icon={<ArrowRight className="w-4 h-4" />}>
+                  Open Notes Studio
                 </Button>
               </div>
             </div>

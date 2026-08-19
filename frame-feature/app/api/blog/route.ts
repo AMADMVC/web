@@ -7,14 +7,14 @@ export async function GET(request: NextRequest) {
     const slug = searchParams.get("slug");
 
     if (slug) {
-      const post = getPostBySlug(slug);
+      const post = await getPostBySlug(slug);
       if (!post) {
         return NextResponse.json({ error: "Post not found" }, { status: 404 });
       }
       return NextResponse.json({ post });
     }
 
-    const posts = getAllPosts();
+    const posts = await getAllPosts();
     return NextResponse.json({ posts });
   } catch (error) {
     console.error("Error in GET /api/blog:", error);
@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
       excerpt?.trim() ||
       rawContent.slice(0, 155).replace(/[#*>\-_`]/g, "").trim();
 
-    const saved = savePost({
+    const saved = await savePost({
       title: title.trim(),
       slug: finalSlug,
       metaTitle: finalMetaTitle,

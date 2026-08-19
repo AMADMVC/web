@@ -20,7 +20,7 @@ import { headers } from "next/headers";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
-  const posts = getAllPosts();
+  const posts = await getAllPosts();
   return posts.map((p) => ({
     slug: p.slug,
   }));
@@ -32,7 +32,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     return {
@@ -79,13 +79,13 @@ export default async function BlogDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     notFound();
   }
 
-  const allPosts = getAllPosts();
+  const allPosts = await getAllPosts();
   const relatedPosts = allPosts.filter((p) => p.id !== post.id).slice(0, 2);
 
   const headersList = await headers();
