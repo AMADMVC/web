@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/Button";
 import { Sparkles, Clock, Calendar, ArrowRight, PenSquare, Search, Tag } from "lucide-react";
 import type { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Blog & Visual Insights | Frame Feature",
   description:
