@@ -5,3 +5,4 @@ Disallow: /admin/*
 Disallow: /api/*
 
 Sitemap: https://framefeature.com/sitemap.xml
+Sitemap: https://framefeature.in/sitemap.xml
