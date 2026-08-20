@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/Button";
 import { LightboxModal } from "@/components/ui/LightboxModal";
 import { Sparkles, ZoomIn, Plus, Image as ImageIcon } from "lucide-react";
 import { StoredGalleryItem } from "@/utils/galleryStorage";
+import { AdminOnly } from "@/components/admin/AdminOnly";
 
 export default function GalleryPage() {
   const [items, setItems] = useState<StoredGalleryItem[]>([]);
@@ -71,6 +72,22 @@ export default function GalleryPage() {
               </p>
             </div>
           </div>
+
+          {/* ADMIN SHORTCUT BAR */}
+          <AdminOnly>
+            <div className="flex items-center gap-3 p-2 rounded-2xl bg-zinc-900/90 border border-[#FF5E14]/30 shadow-xl backdrop-blur-md">
+              <Link href="/admin">
+                <Button size="sm" variant="secondary">
+                  CMS Dashboard
+                </Button>
+              </Link>
+              <Link href="/admin/gallery">
+                <Button size="sm" icon={<Plus className="w-3.5 h-3.5" />}>
+                  Upload Frame
+                </Button>
+              </Link>
+            </div>
+          </AdminOnly>
         </div>
 
         {/* CATEGORY FILTER TABS */}

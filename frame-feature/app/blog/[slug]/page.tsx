@@ -6,6 +6,7 @@ import { getAllPosts, getPostBySlug } from "@/utils/blogStorage";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { AdminOnly } from "@/components/admin/AdminOnly";
 import {
   Clock,
   Calendar,
@@ -15,6 +16,8 @@ import {
   Share2,
   Bookmark,
   Check,
+  Edit3,
+  Sliders,
 } from "lucide-react";
 import { headers } from "next/headers";
 import type { Metadata } from "next";
@@ -230,6 +233,26 @@ export default async function BlogDetailPage({
 
         {/* ARTICLE HEADER */}
         <div className="max-w-4xl mx-auto text-center space-y-6 mb-12">
+          {/* Admin shortcut if logged in */}
+          <AdminOnly>
+            <div className="inline-flex items-center gap-3 p-2 rounded-2xl bg-zinc-900 border border-[#FF5E14]/30 shadow-xl mb-4">
+              <span className="text-[11px] font-bold text-emerald-400 flex items-center gap-1.5 px-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                <span>{post.status === "draft" ? "Draft Preview" : "Published Live"}</span>
+              </span>
+              <Link href={`/admin/blog?slug=${post.slug}`}>
+                <Button size="sm" icon={<Edit3 className="w-3.5 h-3.5" />}>
+                  Edit Article
+                </Button>
+              </Link>
+              <Link href="/admin">
+                <Button size="sm" variant="secondary" icon={<Sliders className="w-3.5 h-3.5" />}>
+                  CMS
+                </Button>
+              </Link>
+            </div>
+          </AdminOnly>
+
           <div className="flex items-center justify-center gap-3">
             <Badge variant="orange" icon={<Sparkles className="w-3.5 h-3.5" />}>
               {post.category}

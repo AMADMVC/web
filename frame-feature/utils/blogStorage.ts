@@ -8,9 +8,12 @@ import {
   limit,
   addDoc,
   updateDoc,
+  deleteDoc,
   doc,
   serverTimestamp,
 } from "firebase/firestore";
+
+export type ContentStatus = "draft" | "published";
 
 export interface StoredBlogPost {
   id: string;
@@ -21,6 +24,7 @@ export interface StoredBlogPost {
   excerpt: string;
   category: "AI" | "Visuals" | "Content" | "Workflows" | "Engineering";
   categoryKey: string;
+  status: ContentStatus;
   featured?: boolean;
   publishedAt: string;
   readTime: string;
@@ -38,13 +42,13 @@ export interface StoredBlogPost {
   rawContent: string;
 }
 
-export async function getAllPosts(): Promise<StoredBlogPost[]> {
+export async function getAllPosts(includeAll: boolean = false): Promise<StoredBlogPost[]> {
   try {
     const blogsRef = collection(db, "blogs");
     const q = query(blogsRef, orderBy("createdAt", "desc"));
     const querySnapshot = await getDocs(q);
     const posts: StoredBlogPost[] = [];
-    
+
     querySnapshot.forEach((docSnap) => {
       const data = docSnap.data();
       const createdAt = data.createdAt;
@@ -60,6 +64,14 @@ export async function getAllPosts(): Promise<StoredBlogPost[]> {
           year: "numeric",
         });
       }
+
+      // Default status: if missing or undefined, treat existing posts as "published"
+      const status: ContentStatus = data.status === "draft" ? "draft" : "published";
+
+      if (!includeAll && status === "draft") {
+        return; // Skip drafts for public view
+      }
+
       posts.push({
         id: docSnap.id,
         slug: data.slug || "",
@@ -69,6 +81,7 @@ export async function getAllPosts(): Promise<StoredBlogPost[]> {
         excerpt: data.excerpt || "",
         category: data.category || "AI",
         categoryKey: data.categoryKey || (data.category ? data.category.toLowerCase().replace(/[^a-z0-9]/g, "") : "ai"),
+        status,
         featured: data.featured || false,
         publishedAt: publishedAtStr,
         readTime: data.readTime || "1 min read",
@@ -90,7 +103,7 @@ export async function getAllPosts(): Promise<StoredBlogPost[]> {
   }
 }
 
-export async function getPostBySlug(slug: string): Promise<StoredBlogPost | null> {
+export async function getPostBySlug(slug: string, includeDraft: boolean = false): Promise<StoredBlogPost | null> {
   try {
     const blogsRef = collection(db, "blogs");
     const q = query(blogsRef, where("slug", "==", slug.toLowerCase()), limit(1));
@@ -100,6 +113,12 @@ export async function getPostBySlug(slug: string): Promise<StoredBlogPost | null
     }
     const docSnap = querySnapshot.docs[0];
     const data = docSnap.data();
+    const status: ContentStatus = data.status === "draft" ? "draft" : "published";
+
+    if (!includeDraft && status === "draft") {
+      return null;
+    }
+
     const createdAt = data.createdAt;
     let publishedAtStr = new Date().toLocaleDateString("en-US", {
       month: "short",
@@ -113,6 +132,7 @@ export async function getPostBySlug(slug: string): Promise<StoredBlogPost | null
         year: "numeric",
       });
     }
+
     return {
       id: docSnap.id,
       slug: data.slug || "",
@@ -122,6 +142,7 @@ export async function getPostBySlug(slug: string): Promise<StoredBlogPost | null
       excerpt: data.excerpt || "",
       category: data.category || "AI",
       categoryKey: data.categoryKey || (data.category ? data.category.toLowerCase().replace(/[^a-z0-9]/g, "") : "ai"),
+      status,
       featured: data.featured || false,
       publishedAt: publishedAtStr,
       readTime: data.readTime || "1 min read",
@@ -142,10 +163,14 @@ export async function getPostBySlug(slug: string): Promise<StoredBlogPost | null
 }
 
 export async function savePost(
-  newPost: Omit<StoredBlogPost, "id" | "publishedAt" | "categoryKey" | "tableOfContents">
+  newPost: Omit<StoredBlogPost, "id" | "publishedAt" | "categoryKey" | "tableOfContents"> & {
+    id?: string;
+    status?: ContentStatus;
+  }
 ): Promise<StoredBlogPost> {
   const headings = extractHeadings(newPost.rawContent);
   const categoryKey = newPost.category.toLowerCase().replace(/[^a-z0-9]/g, "");
+  const status: ContentStatus = newPost.status || "published";
 
   const blogsRef = collection(db, "blogs");
   const q = query(blogsRef, where("slug", "==", newPost.slug.toLowerCase()), limit(1));
@@ -159,6 +184,7 @@ export async function savePost(
     excerpt: newPost.excerpt,
     category: newPost.category,
     categoryKey,
+    status,
     readTime: newPost.readTime,
     author: newPost.author,
     coverImageUrl: newPost.coverImage,
@@ -184,6 +210,7 @@ export async function savePost(
   return {
     ...newPost,
     id,
+    status,
     categoryKey,
     publishedAt: new Date().toLocaleDateString("en-US", {
       month: "short",
@@ -192,6 +219,50 @@ export async function savePost(
     }),
     tableOfContents: headings,
   };
+}
+
+export async function updatePostStatus(slugOrId: string, status: ContentStatus): Promise<boolean> {
+  try {
+    const blogsRef = collection(db, "blogs");
+    // Try by slug first
+    let q = query(blogsRef, where("slug", "==", slugOrId.toLowerCase()), limit(1));
+    let snap = await getDocs(q);
+    if (!snap.empty) {
+      await updateDoc(doc(db, "blogs", snap.docs[0].id), {
+        status,
+        updatedAt: serverTimestamp(),
+      });
+      return true;
+    }
+    // Try by ID
+    await updateDoc(doc(db, "blogs", slugOrId), {
+      status,
+      updatedAt: serverTimestamp(),
+    });
+    return true;
+  } catch (error) {
+    console.error("Error updating blog status:", error);
+    return false;
+  }
+}
+
+export async function deletePost(slugOrId: string): Promise<boolean> {
+  try {
+    const blogsRef = collection(db, "blogs");
+    // Check by slug
+    const q = query(blogsRef, where("slug", "==", slugOrId.toLowerCase()), limit(1));
+    const snap = await getDocs(q);
+    if (!snap.empty) {
+      await deleteDoc(doc(db, "blogs", snap.docs[0].id));
+      return true;
+    }
+    // Check by ID
+    await deleteDoc(doc(db, "blogs", slugOrId));
+    return true;
+  } catch (error) {
+    console.error("Error deleting blog post:", error);
+    return false;
+  }
 }
 
 export function extractHeadings(markdown: string): { id: string; title: string }[] {

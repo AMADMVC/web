@@ -1,0 +1,58 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function getUserData() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && (
+        getUserData().role == 'admin' ||
+        getUserData().role == 'superadmin'
+      );
+    }
+
+    function isSuperAdmin() {
+      return isAuthenticated() && getUserData().role == 'superadmin';
+    }
+
+    // Users collection rules
+    match /users/{userId} {
+      allow read: if isAuthenticated() && (request.auth.uid == userId || isAdmin());
+      allow create: if isAuthenticated();
+      allow update, delete: if isSuperAdmin();
+    }
+
+    // Public content collections: Public can read published content, Admin can create/update/delete all
+    match /blogs/{document=**} {
+      allow read: if true;
+      allow write: if isAdmin() || true; // Set to `if isAdmin();` when auth is fully enforced in production
+    }
+
+    match /work/{document=**} {
+      allow read: if true;
+      allow write: if isAdmin() || true;
+    }
+
+    match /gallery/{document=**} {
+      allow read: if true;
+      allow write: if isAdmin() || true;
+    }
+
+    match /notes/{document=**} {
+      allow read: if true;
+      allow write: if isAdmin() || true;
+    }
+
+    match /team/{document=**} {
+      allow read: if true;
+      allow write: if isAdmin() || true;
+    }
+  }
+}

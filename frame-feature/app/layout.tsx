@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { AuthProvider } from "@/lib/authContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -82,9 +83,11 @@ export default function RootLayout({
         className="min-h-full flex flex-col bg-[#0A0A0C] text-white selection:bg-[#FF5E14] selection:text-white"
         suppressHydrationWarning
       >
-        <Header />
-        <main className="flex-1 w-full">{children}</main>
-        <Footer />
+        <AuthProvider>
+          <Header />
+          <main className="flex-1 w-full">{children}</main>
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );

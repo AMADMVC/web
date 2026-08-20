@@ -1,11 +1,14 @@
 import React from "react";
 import Image from "next/image";
-import { teamMembers } from "@/data/team";
+import { getAllTeamMembers } from "@/utils/teamStorage";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Sparkles, ArrowRight, Layers } from "lucide-react";
 import type { Metadata } from "next";
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: "Team & Leadership | FRAME Studio",
@@ -29,7 +32,8 @@ function LinkedinIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
-export default function TeamPage() {
+export default async function TeamPage() {
+  const teamMembers = await getAllTeamMembers(false);
   return (
     <div className="pt-32 pb-24 bg-[#0A0A0C]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,20 +1,26 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useAuth } from "@/lib/authContext";
 
 /**
- * AdminOnly — Renders children ONLY when the admin session is active.
+ * AdminOnly — Renders children ONLY when the admin session is active (Firebase Auth or Session Auth).
  * Public visitors see nothing. No loading flicker after hydration.
  */
 export function AdminOnly({ children }: { children: React.ReactNode }) {
-  const [isAdmin, setIsAdmin] = useState(false);
+  const { isAdmin: isAuthAdmin, loading } = useAuth();
+  const [isSessionAdmin, setIsSessionAdmin] = useState(false);
 
   useEffect(() => {
-    // Only runs on client — sessionStorage is not available on server
-    const auth = sessionStorage.getItem("frame_admin_auth");
-    setIsAdmin(auth === "true");
+    // Check fallback session storage
+    if (typeof window !== "undefined") {
+      const auth = sessionStorage.getItem("frame_admin_auth");
+      setIsSessionAdmin(auth === "true");
+    }
   }, []);
 
-  if (!isAdmin) return null;
+  if (loading) return null;
+  if (!isAuthAdmin && !isSessionAdmin) return null;
+
   return <>{children}</>;
 }

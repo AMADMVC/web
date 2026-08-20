@@ -7,10 +7,12 @@ import {
   orderBy,
   where,
   limit,
+  updateDoc,
   deleteDoc,
   doc,
   serverTimestamp,
 } from "firebase/firestore";
+import { ContentStatus } from "./blogStorage";
 
 export interface StoredNoteItem {
   id: string;
@@ -19,6 +21,7 @@ export interface StoredNoteItem {
   date: string;
   category: "Visuals" | "AI" | "Content" | "Workflows";
   categoryKey: "visuals" | "ai" | "content" | "workflows";
+  status: ContentStatus;
   readTime: string;
   summary: string;
   content: string[];
@@ -26,7 +29,7 @@ export interface StoredNoteItem {
   socialEmbed?: string;
 }
 
-export async function getAllNotes(): Promise<StoredNoteItem[]> {
+export async function getAllNotes(includeAll: boolean = false): Promise<StoredNoteItem[]> {
   try {
     const notesRef = collection(db, "notes");
     const q = query(notesRef, orderBy("createdAt", "desc"));
@@ -35,6 +38,12 @@ export async function getAllNotes(): Promise<StoredNoteItem[]> {
 
     querySnapshot.forEach((docSnap) => {
       const data = docSnap.data();
+      const status: ContentStatus = data.status === "draft" ? "draft" : "published";
+
+      if (!includeAll && status === "draft") {
+        return;
+      }
+
       items.push({
         id: docSnap.id,
         slug: data.slug || "",
@@ -42,6 +51,7 @@ export async function getAllNotes(): Promise<StoredNoteItem[]> {
         date: data.date || "",
         category: data.category || "AI",
         categoryKey: data.categoryKey || "ai",
+        status,
         readTime: data.readTime || "1 min read",
         summary: data.summary || "",
         content: data.content || [],
@@ -57,7 +67,7 @@ export async function getAllNotes(): Promise<StoredNoteItem[]> {
 }
 
 export async function saveNote(
-  item: Omit<StoredNoteItem, "id" | "categoryKey">
+  item: Omit<StoredNoteItem, "id" | "categoryKey"> & { id?: string; status?: ContentStatus }
 ): Promise<StoredNoteItem> {
   const categoryMap: Record<string, "visuals" | "ai" | "content" | "workflows"> = {
     "Visuals": "visuals",
@@ -67,6 +77,7 @@ export async function saveNote(
   };
 
   const categoryKey = categoryMap[item.category] || "ai";
+  const status: ContentStatus = item.status || "published";
   const notesRef = collection(db, "notes");
 
   const payload = {
@@ -75,21 +86,45 @@ export async function saveNote(
     date: item.date || new Date().toLocaleDateString("en-US", { month: "short", year: "numeric" }),
     category: item.category,
     categoryKey,
+    status,
     readTime: item.readTime || "1 min read",
     summary: item.summary,
     content: item.content,
     takeaway: item.takeaway,
     socialEmbed: item.socialEmbed || "",
-    createdAt: serverTimestamp(),
+    updatedAt: serverTimestamp(),
   };
 
-  const docRef = await addDoc(notesRef, payload);
+  let id = item.id || "";
+  if (id) {
+    await updateDoc(doc(db, "notes", id), payload);
+  } else {
+    const docRef = await addDoc(notesRef, {
+      ...payload,
+      createdAt: serverTimestamp(),
+    });
+    id = docRef.id;
+  }
 
   return {
     ...item,
-    id: docRef.id,
+    id,
+    status,
     categoryKey,
   };
+}
+
+export async function updateNoteStatus(id: string, status: ContentStatus): Promise<boolean> {
+  try {
+    await updateDoc(doc(db, "notes", id), {
+      status,
+      updatedAt: serverTimestamp(),
+    });
+    return true;
+  } catch (error) {
+    console.error("Error updating note status:", error);
+    return false;
+  }
 }
 
 export async function deleteNote(id: string): Promise<boolean> {

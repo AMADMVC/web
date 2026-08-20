@@ -5,18 +5,33 @@ import { getAllPosts } from "@/utils/blogStorage";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
-import { Sparkles, Clock, Calendar, ArrowRight, PenSquare, Search, Tag } from "lucide-react";
+import { AdminOnly } from "@/components/admin/AdminOnly";
+import {
+  Sparkles,
+  Clock,
+  Calendar,
+  ArrowRight,
+  PenSquare,
+  Search,
+  Tag,
+  Edit3,
+  Sliders,
+  Eye,
+} from "lucide-react";
 import type { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: "Blog & Visual Insights | Frame Feature",
   description:
     "Explore in-depth articles on AI workflows, visual storytelling, photography composition, and content structure.",
 };
+
 export default async function BlogIndexPage() {
-  const posts = await getAllPosts();
+  // Public users see published posts only
+  const posts = await getAllPosts(false);
   const featuredPost = posts.find((p) => p.featured) || posts[0];
   const regularPosts = posts.filter((p) => p.id !== featuredPost?.id);
 
@@ -40,14 +55,41 @@ export default async function BlogIndexPage() {
               In-depth articles, case breakdowns, and practical workflows on how cameras, AI tools, and structure combine to build impactful visual content.
             </p>
           </div>
+
+          {/* ADMIN SHORTCUT BAR */}
+          <AdminOnly>
+            <div className="flex items-center gap-3 p-2 rounded-2xl bg-zinc-900/90 border border-[#FF5E14]/30 shadow-xl backdrop-blur-md">
+              <Link href="/admin">
+                <Button size="sm" variant="secondary" icon={<Sliders className="w-3.5 h-3.5" />}>
+                  CMS Dashboard
+                </Button>
+              </Link>
+              <Link href="/admin/blog">
+                <Button size="sm" icon={<PenSquare className="w-3.5 h-3.5" />}>
+                  Write Post
+                </Button>
+              </Link>
+            </div>
+          </AdminOnly>
         </div>
 
         {/* FEATURED HERO POST */}
         {featuredPost && (
           <div className="mb-20">
-            <div className="text-xs font-bold uppercase tracking-wider text-[#FF7A1A] mb-4 flex items-center gap-2">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Featured Article</span>
+            <div className="text-xs font-bold uppercase tracking-wider text-[#FF7A1A] mb-4 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Featured Article</span>
+              </div>
+              <AdminOnly>
+                <Link
+                  href={`/admin/blog?slug=${featuredPost.slug}`}
+                  className="text-xs text-zinc-400 hover:text-white flex items-center gap-1 bg-zinc-900 px-3 py-1 rounded-full border border-white/10"
+                >
+                  <Edit3 className="w-3.5 h-3.5 text-[#FF5E14]" />
+                  <span>Edit Article</span>
+                </Link>
+              </AdminOnly>
             </div>
 
             <Link
@@ -55,7 +97,7 @@ export default async function BlogIndexPage() {
               className="group block rounded-3xl bg-zinc-900/60 border border-white/10 overflow-hidden hover:border-[#FF5E14]/50 transition-all duration-300 shadow-2xl"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
-                {/* Image (6 Cols) */}
+                {/* Image (7 Cols) */}
                 <div className="lg:col-span-7 relative h-72 sm:h-96 lg:h-full min-h-[340px] bg-zinc-950 overflow-hidden">
                   <Image
                     src={featuredPost.coverImage}
@@ -135,21 +177,20 @@ export default async function BlogIndexPage() {
             <div className="p-16 rounded-3xl bg-zinc-900/40 border border-white/10 text-center space-y-4">
               <h3 className="text-2xl font-bold text-white">No articles published yet</h3>
               <p className="text-zinc-400 text-sm max-w-md mx-auto">
-                Be the first to publish a post using the manual Blog Publisher Studio.
+                Publish a post using the manual Blog Publisher Studio.
               </p>
-              <Button href="/blog/new" size="md">
+              <Button href="/admin/blog" size="md">
                 + Create First Post
               </Button>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {posts.map((post) => (
-                <Link
+                <div
                   key={post.id}
-                  href={`/blog/${post.slug}`}
-                  className="group rounded-3xl bg-zinc-900/60 border border-white/10 overflow-hidden hover:border-[#FF5E14]/40 transition-all duration-300 flex flex-col justify-between shadow-xl"
+                  className="group rounded-3xl bg-zinc-900/60 border border-white/10 overflow-hidden hover:border-[#FF5E14]/40 transition-all duration-300 flex flex-col justify-between shadow-xl relative"
                 >
-                  <div>
+                  <Link href={`/blog/${post.slug}`} className="block">
                     {/* Cover Image */}
                     <div className="relative h-56 w-full bg-zinc-950 overflow-hidden">
                       <Image
@@ -182,16 +223,33 @@ export default async function BlogIndexPage() {
                         {post.excerpt}
                       </p>
                     </div>
-                  </div>
+                  </Link>
 
-                  {/* Footer Bar */}
+                  {/* Footer Bar with Admin Actions */}
                   <div className="p-6 pt-0 flex items-center justify-between border-t border-white/5 mt-4 pt-4 text-xs">
                     <span className="text-zinc-400 font-medium">By {post.author.name}</span>
-                    <span className="text-[#FF7A1A] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                      Read &rarr;
-                    </span>
+
+                    <div className="flex items-center gap-2">
+                      <AdminOnly>
+                        <Link
+                          href={`/admin/blog?slug=${post.slug}`}
+                          className="px-2.5 py-1 rounded-lg bg-zinc-800 text-zinc-300 hover:text-white hover:bg-zinc-700 flex items-center gap-1 font-semibold"
+                          title="Edit in Studio"
+                        >
+                          <Edit3 className="w-3 h-3 text-[#FF5E14]" />
+                          <span>Edit</span>
+                        </Link>
+                      </AdminOnly>
+
+                      <Link
+                        href={`/blog/${post.slug}`}
+                        className="text-[#FF7A1A] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+                      >
+                        <span>Read &rarr;</span>
+                      </Link>
+                    </div>
                   </div>
-                </Link>
+                </div>
               ))}
             </div>
           )}

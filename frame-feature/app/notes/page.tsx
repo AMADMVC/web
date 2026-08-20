@@ -2,9 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import Script from "next/script";
-import { notesData } from "@/data/notes";
+import Link from "next/link";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
 import { 
   Sparkles, 
   Clock, 
@@ -73,15 +74,12 @@ export default function NotesPage() {
     }
   };
 
-  // Merge Firestore notes with static mock notes to keep history
-  const mergedNotes = [...dbNotes, ...notesData];
-
   const categories = ["All", "Visuals", "AI", "Content", "Workflows"];
 
   const filteredNotes =
     selectedCategory === "All"
-      ? mergedNotes
-      : mergedNotes.filter((n) => n.category === selectedCategory);
+      ? dbNotes
+      : dbNotes.filter((n) => n.category === selectedCategory);
 
   // Trigger Twitter Widget load after notes change
   useEffect(() => {
@@ -105,9 +103,27 @@ export default function NotesPage() {
 
         {/* HERO */}
         <div className="mb-16 space-y-4">
-          <Badge variant="orange" icon={<Sparkles className="w-3.5 h-3.5" />}>
-            Short Thoughts &bull; Learnings
-          </Badge>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <Badge variant="orange" icon={<Sparkles className="w-3.5 h-3.5" />}>
+              Short Thoughts &bull; Learnings
+            </Badge>
+
+            {/* ADMIN SHORTCUT BAR */}
+            <AdminOnly>
+              <div className="flex items-center gap-3 p-2 rounded-2xl bg-zinc-900/90 border border-[#FF5E14]/30 shadow-xl backdrop-blur-md">
+                <Link href="/admin">
+                  <Button size="sm" variant="secondary">
+                    CMS Dashboard
+                  </Button>
+                </Link>
+                <Link href="/admin/note">
+                  <Button size="sm">
+                    + Write Note
+                  </Button>
+                </Link>
+              </div>
+            </AdminOnly>
+          </div>
 
           <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight">
             Notes
