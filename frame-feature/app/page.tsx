@@ -9,6 +9,7 @@ import { notesData } from "@/data/notes";
 import { Badge } from "@/components/ui/Badge";
 import { ArrowRight, Sparkles, Clock } from "lucide-react";
 
+// Frame Feature Live Build Test - Sync Verified
 export default function HomePage() {
   return (
     <>
